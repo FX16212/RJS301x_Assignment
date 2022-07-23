@@ -1,0 +1,8 @@
+.listContainer {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.listResult {
+	flex: 3;
+}

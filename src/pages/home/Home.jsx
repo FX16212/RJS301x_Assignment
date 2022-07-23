@@ -5,6 +5,7 @@ import TypeOfHotels from '../../components/typeOfHotels/TypeOfHotels';
 import HotelList from '../../components/hotelList/HotelList';
 import MailList from '../../components/mailList/MailList';
 import Footer from '../../components/footer/Footer';
+import './Home.css';
 
 const Home = () => {
 	return (
