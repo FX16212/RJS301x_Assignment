@@ -1,0 +1,27 @@
+.navbar {
+	background-color: #003580;
+	color: white;
+	display: flex;
+	justify-content: center;
+	height: 80px;
+}
+.navbar-list {
+	width: 100%;
+	max-width: 1024px;
+	margin: 20px 0px 100px 0px;
+}
+.navbar-list-container {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 50px;
+}
+.navbar-list-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.active {
+	border: 1px solid white;
+	padding: 10px;
+	border-radius: 20px;
+}
