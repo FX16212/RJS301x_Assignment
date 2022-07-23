@@ -5,7 +5,6 @@ import NavBarItem from './NavBarItem';
 function Navbar() {
 	return (
 		<div>
-			// Navbar Header
 			<div className="navbar-header">
 				<div className="navbar-container">
 					<h2 className="navbar-logo">Booking Website</h2>
@@ -15,7 +14,6 @@ function Navbar() {
 					</div>
 				</div>
 			</div>
-			// Navbar Items
 			<NavBarItem />
 		</div>
 	);
