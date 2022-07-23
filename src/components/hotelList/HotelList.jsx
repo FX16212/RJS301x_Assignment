@@ -1,6 +1,12 @@
 import './HotelList.css';
 import hotel_list from '../../data/hotel_list';
-const FeaturedProperties = () => {
+import { useNavigate } from 'react-router-dom';
+
+const HotelList = () => {
+	const navigate = useNavigate();
+	const handleDetail = () => {
+		navigate(`/detail`);
+	};
 	return (
 		<div className="hotelList">
 			{hotel_list.map((hotel, index) => {
@@ -8,7 +14,9 @@ const FeaturedProperties = () => {
 					<div key={index}>
 						<div className="hotelListItem">
 							<img src={hotel.image_url} alt="" className="hotelListImg" />
-							<span className="hotelListName">{hotel.name}</span>
+							<span onClick={handleDetail} className="hotelListName">
+								{hotel.name}
+							</span>
 							<span className="hotelListCity">{hotel.city}</span>
 							<span className="hotelListPrice">
 								Starting from $ {hotel.price}
@@ -25,4 +33,4 @@ const FeaturedProperties = () => {
 	);
 };
 
-export default FeaturedProperties;
+export default HotelList;

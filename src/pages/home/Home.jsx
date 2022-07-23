@@ -3,6 +3,7 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import TypeOfHotels from '../../components/typeOfHotels/TypeOfHotels';
 import HotelList from '../../components/hotelList/HotelList';
+import MailList from '../../components/MailList/MailList';
 
 const Home = () => {
 	return (
@@ -15,6 +16,7 @@ const Home = () => {
 				<TypeOfHotels />
 				<h1 className="homeTitle">Homes guests love</h1>
 				<HotelList />
+				<MailList />
 			</div>
 		</div>
 	);
