@@ -1,4 +1,4 @@
-.listSearch {
+.searchPopup {
 	flex: 1;
 	background-color: #febb02;
 	padding: 10px;
@@ -8,29 +8,29 @@
 	height: max-content;
 }
 
-.lsTitle {
+.searchPopup-Title {
 	font-size: 20px;
 	color: #555;
 	margin-bottom: 10px;
 }
 
-.lsItem {
+.searchPopup-Item {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	margin-bottom: 10px;
 }
 
-.lsItem > label {
+.searchPopup-Item > label {
 	font-size: 12px;
 }
 
-.lsItem > input {
+.searchPopup-Item > input {
 	height: 30px;
 	border: none;
 	padding: 5px;
 }
-.lsItem > span {
+.searchPopup-Item > span {
 	height: 30px;
 	padding: 5px;
 	background-color: white;
@@ -39,11 +39,11 @@
 	cursor: pointer;
 }
 
-.lsOptions {
+.searchPopup-Options {
 	padding: 10px;
 }
 
-.lsOptionItem {
+.searchPopup-OptionItem {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 10px;
@@ -51,11 +51,11 @@
 	font-size: 12px;
 }
 
-.lsOptionInput {
+.searchPopup-OptionInput {
 	width: 50px;
 }
 
-.listSearch > button {
+.searchPopup > button {
 	padding: 10px;
 	background-color: #0071c2;
 	color: white;

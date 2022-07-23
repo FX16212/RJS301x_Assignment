@@ -6,33 +6,33 @@
 	gap: 20px;
 }
 
-.hotelListItem {
+.hotelList-Item {
 	flex: 1;
 	gap: 10px;
 	display: flex;
 	flex-direction: column;
 }
 
-.hotelListImg {
+.hotelList-Img {
 	width: 240px;
 	height: 250px;
 	object-fit: cover;
 }
 
-.hotelListName {
+.hotelList-Name {
 	color: #333;
 	font-weight: bold;
 }
 
-.hotelListCity {
+.hotelList-City {
 	font-weight: 300;
 }
 
-.hotelListPrice {
+.hotelList-Price {
 	font-weight: 500;
 }
 
-.hotelListRating > button {
+.hotelList-Rating > button {
 	background-color: #003580;
 	color: white;
 	border: none;
@@ -41,6 +41,6 @@
 	font-weight: bold;
 }
 
-.hotelListRating > span {
+.hotelList-Rating > span {
 	font-size: 14px;
 }

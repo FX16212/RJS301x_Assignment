@@ -8,10 +8,10 @@ const Search = () => {
 		<div>
 			<Navbar />
 			<Header type="list" />
-			<div className="listContainer">
-				<div className="listWrapper">
+			<div className="search-Container">
+				<div className="search-Wrapper">
 					<SearchPopup />
-					<div className="listResult">
+					<div className="search-Result">
 						<SearchList />
 					</div>
 				</div>

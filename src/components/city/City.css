@@ -7,7 +7,7 @@
 	z-index: 1;
 }
 
-.cityItem {
+.city-Item {
 	position: relative;
 	color: white;
 	border-radius: 10px;
@@ -16,13 +16,13 @@
 	flex: 1;
 }
 
-.cityImg {
+.city-Img {
 	width: 330px;
 	height: 250px;
 	object-fit: cover;
 }
 
-.cityTitles {
+.city-Titles {
 	position: absolute;
 	bottom: 20px;
 	left: 20px;

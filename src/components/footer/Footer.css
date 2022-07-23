@@ -4,19 +4,19 @@
 	font-size: 12px;
 }
 
-.fLists {
+.footer-Lists {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 50px;
 }
 
-.fList {
+.footer-List {
 	list-style: none;
 	padding: 0;
 }
 
-.fListItem {
+.footer-List-Item {
 	margin-bottom: 10px;
 	color: #003580;
 	cursor: pointer;

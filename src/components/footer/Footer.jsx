@@ -4,13 +4,13 @@ import footers from '../../data/footer';
 const Footer = () => {
 	return (
 		<div className="footer">
-			<div className="fLists">
+			<div className="footer-Lists">
 				{footers.map((footer, index) => {
 					return (
-						<ul className="fList" key={index}>
+						<ul className="footer-List" key={index}>
 							{footer.col_values.map((value, index) => {
 								return (
-									<li className="fListItem" key={index}>
+									<li className="footer-List-Item" key={index}>
 										{value}
 									</li>
 								);

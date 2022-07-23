@@ -12,16 +12,16 @@ const HotelList = () => {
 			{hotel_list.map((hotel, index) => {
 				return (
 					<div key={index}>
-						<div className="hotelListItem">
-							<img src={hotel.image_url} alt="" className="hotelListImg" />
-							<span onClick={handleDetail} className="hotelListName">
+						<div className="hotelList-Item">
+							<img src={hotel.image_url} alt="" className="hotelList-Img" />
+							<span onClick={handleDetail} className="hotelList-Name">
 								{hotel.name}
 							</span>
-							<span className="hotelListCity">{hotel.city}</span>
-							<span className="hotelListPrice">
+							<span className="hotelList-City">{hotel.city}</span>
+							<span className="hotelList-Price">
 								Starting from $ {hotel.price}
 							</span>
-							<div className="hotelListRating">
+							<div className="hotelList-Rating">
 								<button>{hotel.rate}</button>
 								<span>{hotel.type}</span>
 							</div>

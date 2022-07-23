@@ -7,9 +7,9 @@ const City = () => {
 			{Cities.map((city, index) => {
 				return (
 					<div key={index}>
-						<div className="cityItem">
-							<img src={city.image} alt="" className="cityImg" />
-							<div className="cityTitles">
+						<div className="city-Item">
+							<img src={city.image} alt="" className="city-Img" />
+							<div className="city-Titles">
 								<h1> {city.name} </h1>
 								<h2>{city.subText}</h2>
 							</div>

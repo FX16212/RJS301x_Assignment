@@ -13,13 +13,13 @@ function SearchPopup() {
 	const [options, setOptions] = useState(location.state.options);
 
 	return (
-		<div className="listSearch">
-			<h1 className="lsTitle">Search</h1>
-			<div className="lsItem">
+		<div className="searchPopup">
+			<h1 className="searchPopup-Title">Search</h1>
+			<div className="searchPopup-Item">
 				<label>Destination</label>
 				<input placeholder={destination} type="text" />
 			</div>
-			<div className="lsItem">
+			<div className="searchPopup-Item">
 				<label>Check-in Date</label>
 				<span onClick={() => setOpenDate(!openDate)}>{`${format(
 					date[0].startDate,
@@ -33,45 +33,45 @@ function SearchPopup() {
 					/>
 				)}
 			</div>
-			<div className="lsItem">
+			<div className="searchPopup-Item">
 				<label>Options</label>
-				<div className="lsOptions">
-					<div className="lsOptionItem">
-						<span className="lsOptionText">
+				<div className="searchPopup-Options">
+					<div className="searchPopup-OptionItem">
+						<span className="searchPopup-OptionText">
 							Min price <small>per night</small>
 						</span>
-						<input type="number" className="lsOptionInput" />
+						<input type="number" className="searchPopup-OptionInput" />
 					</div>
-					<div className="lsOptionItem">
-						<span className="lsOptionText">
+					<div className="searchPopup-OptionItem">
+						<span className="searchPopup-OptionText">
 							Max price <small>per night</small>
 						</span>
-						<input type="number" className="lsOptionInput" />
+						<input type="number" className="searchPopup-OptionInput" />
 					</div>
-					<div className="lsOptionItem">
-						<span className="lsOptionText">Adult</span>
+					<div className="searchPopup-OptionItem">
+						<span className="searchPopup-OptionText">Adult</span>
 						<input
 							type="number"
 							min={1}
-							className="lsOptionInput"
+							className="searchPopup-OptionInput"
 							placeholder={options.adult}
 						/>
 					</div>
-					<div className="lsOptionItem">
-						<span className="lsOptionText">Children</span>
+					<div className="searchPopup-OptionItem">
+						<span className="searchPopup-OptionText">Children</span>
 						<input
 							type="number"
 							min={0}
-							className="lsOptionInput"
+							className="searchPopup-OptionInput"
 							placeholder={options.children}
 						/>
 					</div>
-					<div className="lsOptionItem">
-						<span className="lsOptionText">Room</span>
+					<div className="searchPopup-OptionItem">
+						<span className="searchPopup-OptionText">Room</span>
 						<input
 							type="number"
 							min={1}
-							className="lsOptionInput"
+							className="searchPopup-OptionInput"
 							placeholder={options.room}
 						/>
 					</div>

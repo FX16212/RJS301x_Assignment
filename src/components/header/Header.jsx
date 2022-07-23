@@ -50,33 +50,36 @@ function Header({ type }) {
 		<div className="header">
 			<div
 				className={
-					type === 'list' ? 'headerContainer listMode' : 'headerContainer'
+					type === 'list' ? 'header-Container listMode' : 'header-Container'
 				}>
 				{type !== 'list' && (
 					<>
-						<h1 className="headerTitle">
+						<h1 className="header-Title">
 							A lifetime of discounts? It's Genius.
 						</h1>
-						<p className="headerDesc">
+						<p className="header-Desc">
 							Get rewarded for your travels – unlock instant savings of 10% or
 							more with a free account
 						</p>
-						<button className="headerBtn">Sign in / Register</button>
-						<div className="headerSearch">
-							<div className="headerSearchItem">
-								<FontAwesomeIcon icon={faBed} className="headerIcon" />
+						<button className="header-Btn">Sign in / Register</button>
+						<div className="header-Search">
+							<div className="header-SearchItem">
+								<FontAwesomeIcon icon={faBed} className="header-Icon" />
 								<input
 									type="text"
 									placeholder="Where are you going?"
-									className="headerSearchInput"
+									className="header-SearchInput"
 									onChange={(e) => setDestination(e.target.value)}
 								/>
 							</div>
-							<div className="headerSearchItem">
-								<FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+							<div className="header-SearchItem">
+								<FontAwesomeIcon
+									icon={faCalendarDays}
+									className="header-Icon"
+								/>
 								<span
 									onClick={() => setOpenDate(!openDate)}
-									className="headerSearchText">{`${format(
+									className="header-SearchText">{`${format(
 									date[0].startDate,
 									'MM/dd/yyyy'
 								)} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span>
@@ -91,65 +94,65 @@ function Header({ type }) {
 									/>
 								)}
 							</div>
-							<div className="headerSearchItem">
-								<FontAwesomeIcon icon={faPerson} className="headerIcon" />
+							<div className="header-SearchItem">
+								<FontAwesomeIcon icon={faPerson} className="header-Icon" />
 								<span
 									onClick={() => setOpenOptions(!openOptions)}
-									className="headerSearchText">{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+									className="header-SearchText">{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
 								{openOptions && (
 									<div className="options">
-										<div className="optionItem">
-											<span className="optionText">Adult</span>
-											<div className="optionCounter">
+										<div className="option-Item">
+											<span className="option-Text">Adult</span>
+											<div className="option-Counter">
 												<button
 													disabled={options.adult <= 1}
-													className="optionCounterButton"
+													className="option-Counter-Button"
 													onClick={() => handleOption('adult', 'd')}>
 													-
 												</button>
-												<span className="optionCounterNumber">
+												<span className="option-Counter-Number">
 													{options.adult}
 												</span>
 												<button
-													className="optionCounterButton"
+													className="option-Counter-Button"
 													onClick={() => handleOption('adult', 'i')}>
 													+
 												</button>
 											</div>
 										</div>
-										<div className="optionItem">
-											<span className="optionText">Children</span>
-											<div className="optionCounter">
+										<div className="option-Item">
+											<span className="option-Text">Children</span>
+											<div className="option-Counter">
 												<button
 													disabled={options.children <= 0}
-													className="optionCounterButton"
+													className="option-Counter-Button"
 													onClick={() => handleOption('children', 'd')}>
 													-
 												</button>
-												<span className="optionCounterNumber">
+												<span className="option-Counter-Number">
 													{options.children}
 												</span>
 												<button
-													className="optionCounterButton"
+													className="option-Counter-Button"
 													onClick={() => handleOption('children', 'i')}>
 													+
 												</button>
 											</div>
 										</div>
-										<div className="optionItem">
-											<span className="optionText">Room</span>
-											<div className="optionCounter">
+										<div className="option-Item">
+											<span className="option-Text">Room</span>
+											<div className="option-Counter">
 												<button
 													disabled={options.room <= 1}
-													className="optionCounterButton"
+													className="option-Counter-Button"
 													onClick={() => handleOption('room', 'd')}>
 													-
 												</button>
-												<span className="optionCounterNumber">
+												<span className="option-Counter-Number">
 													{options.room}
 												</span>
 												<button
-													className="optionCounterButton"
+													className="option-Counter-Button"
 													onClick={() => handleOption('room', 'i')}>
 													+
 												</button>
@@ -158,8 +161,8 @@ function Header({ type }) {
 									</div>
 								)}
 							</div>
-							<div className="headerSearchItem">
-								<button className="headerBtn" onClick={handleSearch}>
+							<div className="header-SearchItem">
+								<button className="header-Btn" onClick={handleSearch}>
 									Search
 								</button>
 							</div>

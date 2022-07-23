@@ -4,14 +4,14 @@ import './NavBarItem.css';
 
 function NavBarItem() {
 	return (
-		<div className="navbar">
-			<div className="navbar-list">
-				<div className="navbar-list-container">
+		<div className="navbarItem">
+			<div className="navbarItem-list">
+				<div className="navbarItem-list-container">
 					{NavbarList.map((navBar, index) => {
 						return (
 							<div
 								className={
-									'navbar-list-item ' + `${navBar.active ? 'active' : ''}`
+									'navbarItem-list-item ' + `${navBar.active ? 'active' : ''}`
 								}
 								key={index}>
 								<i className={'fas ' + `${navBar.icon}`} />
