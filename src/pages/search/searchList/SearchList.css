@@ -1,4 +1,4 @@
-.hotelSearch {
+.searchList {
 	border: 1px solid lightgray;
 	padding: 10px;
 	border-radius: 5px;
@@ -8,29 +8,29 @@
 	margin-bottom: 20px;
 }
 
-.hotelImg {
+.searchList-Img {
 	width: 200px;
 	height: 200px;
 	object-fit: cover;
 }
 
-.hotelDesc {
+.searchList-Desc {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	flex: 2;
 }
 
-.hotelTitle {
+.searchList-Title {
 	font-size: 20px;
 	color: #0071c2;
 }
 
-.hotelDistance {
+.searchList-Distance {
 	font-size: 12px;
 }
 
-.hotelTaxiOp {
+.searchList-TaxiOp {
 	font-size: 12px;
 	background-color: #008009;
 	color: white;
@@ -39,42 +39,42 @@
 	border-radius: 5px;
 }
 
-.hotelSubtitle {
+.searchList-Subtitle {
 	font-size: 12px;
 	font-weight: bold;
 }
 
-.hotelFeatures {
+.searchList-Features {
 	font-size: 12px;
 }
 
-.hotelCancelOp {
+.searchList-CancelOp {
 	font-size: 12px;
 	color: #008009;
 	font-weight: bold;
 }
 
-.hotelCancelOpSubtitle {
+.searchList-CancelOpSubtitle {
 	font-size: 12px;
 	color: #008009;
 }
 
-.hotelDetails {
+.searchList-Details {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-.hotelRating {
+.searchList-Rating {
 	display: flex;
 	justify-content: space-between;
 }
 
-.hotelRating > span {
+.searchList-Rating > span {
 	font-weight: 500;
 }
-.hotelRating > button {
+.searchList-Rating > button {
 	background-color: #003580;
 	color: white;
 	padding: 5px;
@@ -82,23 +82,23 @@
 	border: none;
 }
 
-.hotelDetailTexts {
+.searchList-DetailTexts {
 	text-align: right;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 }
 
-.hotelPrice {
+.searchList-Price {
 	font-size: 24px;
 }
 
-.hotelTaxOp {
+.searchList-TaxOp {
 	font-size: 12px;
 	color: gray;
 }
 
-.hotelCheckButton {
+.searchList-CheckButton {
 	background-color: #0071c2;
 	color: white;
 	font-weight: bold;
