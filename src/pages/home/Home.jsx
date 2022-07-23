@@ -3,7 +3,8 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import TypeOfHotels from '../../components/typeOfHotels/TypeOfHotels';
 import HotelList from '../../components/hotelList/HotelList';
-import MailList from '../../components/MailList/MailList';
+import MailList from '../../components/mailList/MailList';
+import Footer from '../../components/footer/Footer';
 
 const Home = () => {
 	return (
@@ -17,6 +18,7 @@ const Home = () => {
 				<h1 className="homeTitle">Homes guests love</h1>
 				<HotelList />
 				<MailList />
+				<Footer />
 			</div>
 		</div>
 	);
