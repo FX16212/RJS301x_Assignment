@@ -1,0 +1,30 @@
+.typeOfHotels {
+	width: 100%;
+	max-width: 1024px;
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.typeOfHotelsItem {
+	flex: 1;
+	border-radius: 10px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.typeOfHotelsImg {
+	width: 170px;
+	height: 150px;
+	object-fit: cover;
+}
+
+.typeOfHotelsTitles > h1 {
+	font-size: 18px;
+	color: #444;
+}
+
+.typeOfHotelsTitles > h2 {
+	font-size: 14px;
+	font-weight: 300;
+}
