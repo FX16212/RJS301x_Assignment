@@ -1,12 +1,12 @@
 import React from 'react';
+import Navbar from '../../components/Navbar/Navbar';
 
 function Browse() {
 	return (
-		<div className="app">
-			<h1>Browse</h1>
-		</div>
+		<>
+			<Navbar />
+		</>
 	);
 }
 
 export default Browse;
-
