@@ -1,0 +1,8 @@
+/* Applies to the html document */
+* {
+	margin: 0;
+}
+/* Styling app component */
+.app {
+	background-color: #111;
+}
