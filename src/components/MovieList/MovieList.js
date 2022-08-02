@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../axios';
+import MovieComponent from './MovieComponent';
+import MovieDetail from './MovieDetail/MovieDetail';
 import './MovieList.css';
-import YouTube from 'react-youtube';
 
-const base_URL = 'https://image.tmdb.org/t/p/original/';
-
-// Row component
-function MovieList({ title, fetchURL, isLargeRow }) {
+// MovieList component
+function MovieList(props) {
+	const { title, fetchURL, isLargeRow } = props;
 	/* Creating a movie state (short term memory) */
 	const [movies, setMovies] = useState([]);
-	/* Creating a trailer state (short term memory) */
-	const [trailerURL, setTrailerURL] = useState('');
+	const [selectMovie, setSelectMovie] = useState();
+	const [isActive, setIsActive] = useState(false);
 	//   Pulling information from tmdb API when the pages loads
 	useEffect(() => {
 		//   Running async call
@@ -24,16 +24,6 @@ function MovieList({ title, fetchURL, isLargeRow }) {
 		fetchData();
 	}, [fetchURL]);
 
-	const opts = {
-		height: '390',
-		width: '100%',
-		playerVars: {
-			autoplay: 1,
-		},
-	};
-
-	//   When user clicks on the movie picture
-
 	return (
 		<div className="row">
 			<h2>{title}</h2>
@@ -41,22 +31,20 @@ function MovieList({ title, fetchURL, isLargeRow }) {
 			<div className="row__posters">
 				{/* several row poster */}
 				{/* Looping through movies array API */}
-				{movies.map((movie) => (
-					//   returns movie images in new array
-					<img
-						key={movie.id}
-						className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
-						// Loads poster images from base url
-						src={`${base_URL}${
-							isLargeRow ? movie.poster_path : movie.backdrop_path
-						}`}
-						alt={movie.name}
-					/>
-				))}
-				{/* Contain -> posters */}
+				{movies &&
+					movies.map((movie, index) => (
+						//   returns movie component
+						<MovieComponent
+							key={index}
+							movie={movie}
+							onSelectMovie={setSelectMovie}
+							isLargeRow={isLargeRow}
+						/>
+					))}
 			</div>
-			{/* Embedding youtube movie trailers to show */}
-			{trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
+			{selectMovie && (
+				<MovieDetail selectMovie={selectMovie} onSelectMovie={setSelectMovie} />
+			)}
 		</div>
 	);
 }

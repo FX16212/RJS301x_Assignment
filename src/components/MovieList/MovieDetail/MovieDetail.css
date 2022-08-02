@@ -1,0 +1,19 @@
+.movie_detail {
+	display: flex;
+	margin: 10px;
+}
+
+.movie_detail_left {
+	flex: 1;
+	margin: 20px;
+}
+.movie_detail_hr {
+	margin: 20px 0;
+}
+.movie_detail_h4 {
+	margin-bottom: 20px;
+}
+.movie_detail_right {
+	flex: 1;
+	margin: 10px;
+}

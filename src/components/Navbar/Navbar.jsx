@@ -17,6 +17,7 @@ function Navbar() {
 			window.removeEventListener('scroll');
 		};
 	}, []);
+
 	return (
 		//   Always use nav css, except when scrolling 100px down we want the black__navbar class
 		<div className={`nav ${show && 'nav__black'}`}>

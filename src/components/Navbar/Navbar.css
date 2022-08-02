@@ -28,6 +28,7 @@
 	margin-top: -10px;
 	width: 100px;
 	object-fit: contain;
+	cursor: pointer;
 }
 
 /* Styling and positioning navbar avatar */
@@ -36,4 +37,5 @@
 	right: 20px;
 	width: 20px;
 	object-fit: contain;
+	cursor: pointer;
 }
