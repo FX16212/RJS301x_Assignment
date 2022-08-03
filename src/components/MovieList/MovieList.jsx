@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../axios';
-import MovieComponent from './MovieComponent';
 import MovieDetail from './MovieDetail/MovieDetail';
+
 import './MovieList.css';
 
 // MovieList component
 function MovieList(props) {
+	const base_URL = 'https://image.tmdb.org/t/p/original/';
 	const { title, fetchURL, isLargeRow } = props;
 	/* Creating a movie state (short term memory) */
 	const [movies, setMovies] = useState([]);
 	const [selectMovie, setSelectMovie] = useState();
-	const [isActive, setIsActive] = useState(false);
+
 	//   Pulling information from tmdb API when the pages loads
 	useEffect(() => {
 		//   Running async call
@@ -34,11 +35,21 @@ function MovieList(props) {
 				{movies &&
 					movies.map((movie, index) => (
 						//   returns movie component
-						<MovieComponent
+						<img
 							key={index}
-							movie={movie}
-							onSelectMovie={setSelectMovie}
-							isLargeRow={isLargeRow}
+							onClick={() => {
+								if (selectMovie) {
+									setSelectMovie();
+								} else {
+									setSelectMovie(movie.id);
+								}
+							}}
+							className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
+							// Loads poster images from base url
+							src={`${base_URL}${
+								isLargeRow ? movie.poster_path : movie.backdrop_path
+							}`}
+							alt={movie.name}
 						/>
 					))}
 			</div>

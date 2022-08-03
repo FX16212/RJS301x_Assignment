@@ -44,9 +44,3 @@
 	transform: scale(1.09);
 	opacity: 1;
 }
-.active {
-	display: block;
-}
-.hide {
-	display: none;
-}

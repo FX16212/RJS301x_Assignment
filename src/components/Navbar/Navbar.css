@@ -6,7 +6,7 @@
 	width: 100%;
 	justify-content: space-between;
 	padding: 20px;
-	height: 30px;
+	height: 20px;
 	/* Navbar always stays on top of page */
 	z-index: 1;
 
@@ -25,9 +25,8 @@
 	position: fixed;
 	color: #bc0407;
 	left: 20px;
-	margin-top: -10px;
 	width: 100px;
-	object-fit: contain;
+	font-weight: bold;
 	cursor: pointer;
 }
 
@@ -36,6 +35,5 @@
 	position: fixed;
 	right: 20px;
 	width: 20px;
-	object-fit: contain;
 	cursor: pointer;
 }

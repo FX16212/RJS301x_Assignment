@@ -76,9 +76,7 @@ function MovieDetail(props) {
 						</div>
 					)}
 				</div>
-			) : (
-				'Loading...'
-			)}
+			) : null}
 		</>
 	);
 }
