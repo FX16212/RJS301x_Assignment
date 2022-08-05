@@ -1,6 +1,6 @@
 # Assignment 02: Xây dựng Website xem phim
 
-**Project Link** - ***https://asgm2-rjs301x.netlify.app/***
+**Project Link** - ***https://rjs301x-asgm2.netlify.app/***
 
 ## Tech Used
 
