@@ -5,9 +5,9 @@ import MovieDetail from './MovieDetail/MovieDetail';
 import './MovieList.css';
 
 // MovieList component
-function MovieList(props) {
+function MovieList({ title, fetchURL, isLargeRow }) {
 	const base_URL = 'https://image.tmdb.org/t/p/original/';
-	const { title, fetchURL, isLargeRow } = props;
+
 	/* Creating a movie state (short term memory) */
 	const [movies, setMovies] = useState([]);
 	const [selectMovie, setSelectMovie] = useState();
@@ -38,11 +38,7 @@ function MovieList(props) {
 						<img
 							key={index}
 							onClick={() => {
-								if (selectMovie) {
-									setSelectMovie();
-								} else {
-									setSelectMovie(movie.id);
-								}
+								setSelectMovie(selectMovie === movie.id ? null : movie.id);
 							}}
 							className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
 							// Loads poster images from base url

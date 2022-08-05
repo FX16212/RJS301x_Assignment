@@ -6,7 +6,7 @@
 	width: 100%;
 	justify-content: space-between;
 	padding: 20px;
-	height: 20px;
+	height: 10px;
 	/* Navbar always stays on top of page */
 	z-index: 1;
 
@@ -23,8 +23,9 @@
 /* Styling and positioning navbar logo */
 .nav__logo {
 	position: fixed;
-	color: #bc0407;
+	color: #ff1414;
 	left: 20px;
+	margin-top: -10px;
 	width: 100px;
 	font-weight: bold;
 	cursor: pointer;
@@ -36,4 +37,5 @@
 	right: 20px;
 	width: 20px;
 	cursor: pointer;
+	margin-bottom: 10px;
 }

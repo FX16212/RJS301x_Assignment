@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import YouTube from 'react-youtube';
 import './MovieDetail.css';
 
-function MovieDetail(props) {
+function MovieDetail({ selectMovie }) {
 	const MOVIE_API = 'https://api.themoviedb.org/3/';
 	const API_KEY = '850ab6fd511ccd59c401ccd3a002d9ed';
 
-	const { selectMovie } = props;
+	//States
 	const [trailer, setTrailer] = useState();
 	const [movies, setMovies] = useState([]);
 	const [movie, setMovie] = useState({ title: 'Loading Movies ...' });
-
+	// Use useEffect fetch Api
 	useEffect(() => {
 		const fetchMovies = async (event) => {
 			if (event) {
@@ -31,6 +31,7 @@ function MovieDetail(props) {
 		fetchMovies();
 	}, [selectMovie]);
 
+	// fetchMovie function
 	const fetchMovie = async (id) => {
 		const req = await fetch(
 			`${MOVIE_API}movie/${id}/videos?api_key=${API_KEY}`
@@ -45,6 +46,7 @@ function MovieDetail(props) {
 		setMovie(data);
 	};
 
+	// Options for YouTube videos
 	const opts = {
 		height: '400',
 		width: '100%',

@@ -24,7 +24,7 @@ function Navbar() {
 		<div className={`nav ${show && 'nav__black'}`}>
 			{/* logo */}
 			<Link to="/">
-				<p className="nav__logo">Movie App</p>
+				<h4 className="nav__logo">Movie App</h4>
 			</Link>
 
 			{/* Search button*/}
