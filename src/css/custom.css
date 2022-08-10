@@ -5,7 +5,9 @@ html {
 .modal-content {
 	border: none;
 }
-
+.modal {
+	display: block !important;
+}
 .modal:target {
 	display: block !important;
 	background-color: rgba(175, 175, 175, 0.3);
