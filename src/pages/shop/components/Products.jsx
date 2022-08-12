@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 Products.propTypes = {
 	products: PropTypes.array,
@@ -24,7 +24,7 @@ function Products(props) {
 			return b.price - a.price;
 		});
 	}
-
+	const navigate = useNavigate();
 	return (
 		<div className="row">
 			{/* -------------Product----------------- */}
@@ -36,13 +36,15 @@ function Products(props) {
 						<div className="product text-center">
 							<div className="position-relative mb-3">
 								<div className="badge text-white badge-"></div>
-								<Link className="d-block" to={`/detail/${product._id.$oid}`}>
+								<div
+									className="d-block"
+									onClick={() => navigate(`/detail/${product._id.$oid}`)}>
 									<img
 										className="img-fluid w-100"
 										src={product.img1}
 										alt="..."
 									/>
-								</Link>
+								</div>
 							</div>
 							<h6>
 								{' '}
