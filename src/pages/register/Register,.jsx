@@ -4,6 +4,8 @@ import Footer from '../home/components/Footer';
 import Navbar from '../home/components/Navbar';
 import { useForm } from 'react-hook-form';
 import '../../css/Auth.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 function Register() {
 	const userArr = localStorage.getItem('LIST_USER_REGISTER')
@@ -38,6 +40,7 @@ function Register() {
 		data.id = Math.floor(Math.random() * 100);
 		userArr.push(data);
 		localStorage.setItem('LIST_USER_REGISTER', JSON.stringify(userArr));
+		toast.success('Register Success !');
 		setSuccess(true);
 	};
 

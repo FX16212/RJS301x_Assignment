@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ProductAPI from '../../api/ProductAPI';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../home/components/Navbar';
 import Footer from '../home/components/Footer';
+import { addCart } from '../../redux/action/ActionCart';
+import { toast } from 'react-toastify';
 
 function Detail(props) {
 	// State Detail
@@ -10,8 +13,13 @@ function Detail(props) {
 	// State sản phẩm cùng categories
 	const [product, setProduct] = useState([]);
 
+	const dispatch = useDispatch();
+
 	//id params cho từng sản phẩm
 	const { id } = useParams();
+
+	//id_user được lấy từ redux
+	const id_user = useSelector((state) => state.Cart.id_user);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -48,7 +56,40 @@ function Detail(props) {
 		if (value === 0) return;
 		setText(value);
 	};
+	//Hàm này là Thêm Sản Phẩm
+	const addToCart = () => {
+		let id_user_cart = '';
 
+		if (localStorage.getItem('id_user')) {
+			id_user_cart = localStorage.getItem('id_user');
+		} else {
+			id_user_cart = id_user;
+		}
+
+		const data = {
+			idUser: id_user_cart,
+			idProduct: detail._id.$oid,
+			nameProduct: detail.name,
+			priceProduct: detail.price,
+			count: text,
+			img: detail.img1,
+		};
+
+		if (localStorage.getItem('id_user')) {
+			const cartItem = {
+				idUser: id_user_cart,
+				idProduct: detail._id.$oid, // Lấy idProduct
+				count: text, // Lấy số lượng
+			};
+
+			localStorage.setItem('CART_ITEM', JSON.stringify(cartItem));
+		} else {
+			const action = addCart(data);
+			dispatch(action);
+		}
+
+		toast.success('Bạn Đã Thêm Hàng Thành Công!');
+	};
 	return (
 		<>
 			<Navbar />
@@ -174,7 +215,9 @@ function Detail(props) {
 									</div>
 								</div>
 								<div className="col-sm-3 pl-sm-0">
-									<a className="btn btn-dark btn-sm btn-block d-flex align-items-center justify-content-center px-0 text-white">
+									<a
+										className="btn btn-dark btn-sm btn-block d-flex align-items-center justify-content-center px-0 text-white"
+										onClick={addToCart}>
 										Add to cart
 									</a>
 								</div>

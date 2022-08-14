@@ -6,6 +6,7 @@ import Navbar from '../home/components/Navbar';
 import { addSession } from '../../redux/action/ActionSession';
 import '../../css/Auth.css';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 function Login() {
 	const userArr = JSON.parse(window.localStorage.getItem('LIST_USER_REGISTER'));
@@ -44,6 +45,7 @@ function Login() {
 
 				const action = addSession(localStorage.getItem('id_user'));
 				dispatch(action);
+				toast.success('Login Success !');
 				setNavigate(true);
 			}
 		}

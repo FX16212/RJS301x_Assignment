@@ -7,11 +7,12 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register,';
 import Shop from './pages/shop/Shop';
-
+import { ToastContainer } from 'react-toastify';
 //CSS
 import './App.css';
 import './css/custom.css';
 import './css/Global-Style.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 	return (
@@ -27,6 +28,17 @@ function App() {
 					<Route path="/register" element={<Register />} />
 				</Routes>
 			</BrowserRouter>
+			<ToastContainer
+				position="top-right"
+				autoClose={3000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		</div>
 	);
 }

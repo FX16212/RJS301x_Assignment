@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 const initialState = {
 	id_user: '',
 	listCart: [],
@@ -32,11 +34,11 @@ const ReducerCart = (state = initialState, action) => {
 				//Còn đã từng mua rồi thì mình update tại vị trí indexCart mà mình vừa tìm được
 				if (!findCart) {
 					add_cart.push(data_add_cart);
-					console.log('Push');
+					toast.warning('Push');
 				} else {
 					add_cart[indexCart].count =
 						parseInt(add_cart[indexCart].count) + parseInt(data_add_cart.count);
-					console.log('Update');
+					toast.warning('Update');
 				}
 			}
 			state = {
