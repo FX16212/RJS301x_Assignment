@@ -1,28 +1,22 @@
+import { ADD_CART, DELETE_CART, UPDATE_CART } from './ActionTypes';
 
-export const addUser = (data) => {
-    return {
-        type: 'ADD_USER',
-        data
-    }
-}
+export const addToCart = (id, qty, product) => {
+	return {
+		type: ADD_CART,
+		payload: { id, qty, product },
+	};
+};
 
-export const addCart = (data) => {
-    return {
-        type: 'ADD_CART',
-        data
-    }
-}
+export const deleteCart = (id) => {
+	return {
+		type: DELETE_CART,
+		payload: id,
+	};
+};
 
-export const updateCart = (data) => {
-    return {
-        type: 'UPDATE_CART',
-        data
-    }
-}
-
-export const deleteCart = (data) => {
-    return {
-        type: 'DELETE_CART',
-        data
-    }
-}
+export const updateCart = (ids, value) => {
+	return {
+		type: UPDATE_CART,
+		payload: { ids, value },
+	};
+};

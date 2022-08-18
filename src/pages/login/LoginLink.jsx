@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteSession } from '../../redux/action/ActionSession';
+import { userLogout } from '../../redux/action/ActionUser';
 
-function LoginLink(props) {
+function LoginLink() {
 	const dispatch = useDispatch();
 	const onRedirect = () => {
 		localStorage.clear();
-		const action = deleteSession('');
+		const action = userLogout('');
 		dispatch(action);
 	};
 

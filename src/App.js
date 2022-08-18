@@ -8,6 +8,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register,';
 import Shop from './pages/shop/Shop';
 import { ToastContainer } from 'react-toastify';
+
 //CSS
 import './App.css';
 import './css/custom.css';
@@ -28,6 +29,8 @@ function App() {
 					<Route path="/register" element={<Register />} />
 				</Routes>
 			</BrowserRouter>
+
+			{/*  ToastContainer  */}
 			<ToastContainer
 				position="top-right"
 				autoClose={3000}

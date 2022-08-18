@@ -1,89 +1,72 @@
-import { toast } from 'react-toastify';
+import { ADD_CART, DELETE_CART, UPDATE_CART } from '../action/ActionTypes';
+
+const getLocalStorage = () => {
+	let cart = localStorage.getItem('cart');
+	if (cart) {
+		return JSON.parse(localStorage.getItem('cart'));
+	} else {
+		return [];
+	}
+};
 
 const initialState = {
-	id_user: '',
-	listCart: [],
+	cart: getLocalStorage(),
 };
 
 const ReducerCart = (state = initialState, action) => {
 	switch (action.type) {
-		//Nhận dữ liệu id_user và thay đổi state
-		case 'ADD_USER':
-			state = {
-				id_user: action.data,
-				listCart: state.listCart,
-			};
-			return state;
-		case 'ADD_CART':
-			//Lấy dữ liệu được truyền tới
-			const data_add_cart = action.data;
-			//Lấy dữ liệu có sẵn trong state
-			const add_cart = state.listCart;
-			if (add_cart.length < 1) {
-				add_cart.push(data_add_cart);
+		case ADD_CART:
+			const { id, qty, product } = action.payload;
+			const tempItem = state.cart.find((i) => i.id === id);
+
+			/* Nếu thêm  sản phẩm bị trùng thì sẽ thêm qty cho sản phẩm
+		 Nếu thêm  sản phẩm không bị trùng thì sẽ thêm mới sản phẩm */
+
+			if (tempItem) {
+				const tempCart = state.cart.map((cartItem) => {
+					if (cartItem.id === id) {
+						let newQty = cartItem.qty + qty;
+						return { ...cartItem, qty: newQty };
+					} else {
+						return cartItem;
+					}
+				});
+
+				return { ...state, cart: tempCart };
 			} else {
-				//Tìm Vị Trí của sản phẩm đã mua
-				const indexCart = add_cart.findIndex((value) => {
-					return value.idProduct === data_add_cart.idProduct;
-				});
-				//Tìm xem thử sản phẩm này đã mua hay chưa
-				const findCart = add_cart.find((value) => {
-					return value.idProduct === data_add_cart.idProduct;
-				});
-				//Nếu này chưa được mua thì mình push vào
-				//Còn đã từng mua rồi thì mình update tại vị trí indexCart mà mình vừa tìm được
-				if (!findCart) {
-					add_cart.push(data_add_cart);
-					toast.warning('Push');
-				} else {
-					add_cart[indexCart].count =
-						parseInt(add_cart[indexCart].count) + parseInt(data_add_cart.count);
-					toast.warning('Update');
-				}
+				const newItem = {
+					id,
+					product,
+					qty,
+				};
+				return { ...state, cart: [...state.cart, newItem] };
 			}
-			state = {
-				id_user: state.id_user,
-				listCart: add_cart,
-			};
-			return state;
-		case 'DELETE_CART':
-			//Lấy dữ liệu được truyền tới
-			const data_delete_cart = action.data;
-			//Lấy dữ diệu có sẵn trong state
-			const delete_cart = state.listCart;
-			//Tìm kiểm vị trí mà cần xóa
-			const indexDelete = delete_cart.findIndex((value) => {
-				return value.idProduct === data_delete_cart.idProduct;
+		case DELETE_CART:
+			const tempCart = state.cart.filter((item) => item.id !== action.payload);
+			return { ...state, cart: tempCart };
+		case UPDATE_CART:
+			const { ids, value } = action.payload;
+			const tempCarts = state.cart.map((item) => {
+				if (item.id === ids) {
+					if (value === 'inc') {
+						let newAmount = item.qty + 1;
+						return { ...item, qty: newAmount };
+					}
+					if (value === 'dec') {
+						let newAmount = item.qty - 1;
+						return { ...item, qty: newAmount };
+					}
+				}
+				return item;
 			});
-			//Xóa theo vị trí
-			delete_cart.splice(indexDelete, 1);
-			state = {
-				id_user: state.id_user,
-				listCart: delete_cart,
-			};
-			return state;
-		case 'DELETE_ALL_CART':
-			const data_delete_all_cart = action.data;
-			state = {
-				id_user: state.id_user,
-				listCart: data_delete_all_cart,
-			};
-			return state;
-		case 'UPDATE_CART':
-			const data_update_cart = action.data;
-			const update_cart = state.listCart;
-			const index = update_cart.findIndex((value) => {
-				return value.idProduct === data_update_cart.idProduct;
-			});
-			update_cart[index].count = data_update_cart.count;
-			state = {
-				id_user: state.id_user,
-				listCart: update_cart,
-			};
-			return state;
+
+			return { ...state, cart: tempCarts };
+
 		default:
 			return state;
 	}
+
+	// throw new Error(`No Matching "${action.type}" - action type`);
 };
 
 export default ReducerCart;

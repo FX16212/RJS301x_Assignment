@@ -5,6 +5,36 @@
 * ==========================================
 *
 */
+
+/* Loading Animation */
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.loading-spinner {
+	width: 6rem;
+	height: 6rem;
+	margin: 0 auto;
+	margin-top: 10rem;
+	border-radius: 50%;
+	border: 4px solid #ccc;
+	border-top: 10px solid #383636; /* Blue */
+	border-radius: 50%;
+	animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	height: 350px;
+}
+/* Loading Animation */
+
 .text-small {
 	font-size: 0.85rem !important;
 }

@@ -61,7 +61,9 @@ function Products() {
 										</div>
 										<h6>
 											{' '}
-											<a className="reset-anchor">{product.name}</a>
+											<a className="reset-anchor" href="#">
+												{product.name}
+											</a>
 										</h6>
 										<p className="small text-muted">
 											{product.price.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') +

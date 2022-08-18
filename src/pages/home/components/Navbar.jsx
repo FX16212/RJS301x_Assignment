@@ -1,46 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addUser } from '../../../redux/action/ActionCart';
-import { addSession } from '../../../redux/action/ActionSession';
+
 import LoginLink from '../../login/LoginLink';
 import LogoutLink from '../../logout/LogoutLink';
 import Name from '../../logout/Name';
+
+/* Redux */
+import { userLogin } from '../../../redux/action/ActionUser';
 
 function Navbar() {
 	const [active, setActive] = useState('Home');
 	const navigate = useNavigate();
 
 	const dispatch = useDispatch();
-	const id_user = localStorage.getItem('id_user');
+
+	//Get loginInfo & nameInfo từ LocalStorage
+	const loginInfo = localStorage.getItem('USER_INFO');
+	const nameInfo = localStorage.getItem('name_user');
 
 	// Sau khi F5 nó sẽ kiểm tra nếu phiên làm việc của LocalStorage vẫn còn thì nó sẽ tiếp tục
 	// đưa dữ liệu vào Redux
-	if (id_user) {
-		const action = addSession(id_user);
-		dispatch(action);
-	} else {
-		//Đưa idTemp vào Redux temp để tạm lưu trữ
-		localStorage.setItem('id_temp', 'abc999');
-		const action = addUser(localStorage.getItem('id_temp'));
+	if (loginInfo) {
+		const action = userLogin(JSON.parse(loginInfo));
 		dispatch(action);
 	}
-
-	//Get IdUser từ redux khi user đã đăng nhập
-	const idUser = useSelector((state) => state.Session.idUser);
-
-	const [loginUser, setLoginUser] = useState(false);
-	const [nameUser, setNameUser] = useState(false);
-
-	useEffect(() => {
-		if (!idUser) {
-			setLoginUser(false);
-			setNameUser(false);
-		} else {
-			setLoginUser(true);
-			setNameUser(true);
-		}
-	}, [idUser]);
 
 	return (
 		<div className="container px-0 px-lg-3">
@@ -89,8 +73,8 @@ function Navbar() {
 								<i className="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart
 							</div>
 						</li>
-						{nameUser ? <Name /> : ''}
-						{loginUser ? <LoginLink /> : <LogoutLink />}
+						{nameInfo ? <Name /> : ''}
+						{loginInfo ? <LoginLink /> : <LogoutLink />}
 					</ul>
 				</div>
 			</nav>

@@ -15,7 +15,8 @@ function Name(props) {
 				id="pagesDropdown"
 				data-toggle="dropdown"
 				aria-haspopup="true"
-				aria-expanded="false">
+				aria-expanded="false"
+				href="#">
 				<i className="fas fa-user-alt mr-1 text-gray"></i>
 				{name}
 			</a>
