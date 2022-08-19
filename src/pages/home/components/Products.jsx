@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import ProductAPI from '../../../api/ProductAPI';
+import { useDispatch, useSelector } from 'react-redux';
+import { showPopup, hidePopup } from '../../../redux/action/ActionModalPopUp';
 import Popup from './Popup';
 
 function Products() {
-	// const navigate = useNavigate();
-
+	const dispatch = useDispatch();
 	// State
 	const [products, setProducts] = useState([]);
-	const [state, setState] = React.useState({ open: false, product: '' });
+
 	// Fetch all products
 	useEffect(() => {
 		const fetchData = async () => {
@@ -18,13 +18,15 @@ function Products() {
 		};
 		fetchData();
 	}, []);
+	// Lấy dữ liệu từ Redux
+	const { isOpen, product } = useSelector((state) => state.modal);
 
-	const handlePopup = (product) => {
-		setState({ open: true, product: product });
+	const handleShowPopup = (product) => {
+		dispatch(showPopup(product));
 	};
 
 	const handleClose = () => {
-		setState({ open: false, product: '' });
+		dispatch(hidePopup());
 	};
 
 	return (
@@ -54,7 +56,7 @@ function Products() {
 													src={product.img1}
 													alt="..."
 													onClick={() => {
-														handlePopup(product);
+														handleShowPopup(product);
 													}}
 												/>
 											</div>
@@ -75,9 +77,7 @@ function Products() {
 						})}
 				</div>
 			</section>
-			{state.open && (
-				<Popup product={state.product} handleClose={handleClose} />
-			)}
+			{isOpen && <Popup product={product} handleClose={handleClose} />}
 		</>
 	);
 }

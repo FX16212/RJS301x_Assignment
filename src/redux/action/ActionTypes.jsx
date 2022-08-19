@@ -8,3 +8,7 @@ export const COUNT_CART_TOTALS = 'COUNT_CART_TOTALS';
 export const USER_REGISTER = 'USER_REGISTER';
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGOUT = 'USER_LOGOUT';
+
+/* POPUP */
+export const SHOW_POPUP = 'SHOW_POPUP';
+export const HIDE_POPUP = 'HIDE_POPUP';
