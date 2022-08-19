@@ -4,8 +4,6 @@ import { toast } from 'react-toastify';
 import { Link, Navigate } from 'react-router-dom';
 import CartTotal from './component/CartTotal';
 import { useSelector } from 'react-redux';
-import Navbar from '../home/components/Navbar';
-import Footer from '../home/components/Footer';
 import Loading from '../home/components/Loading';
 
 function Cart() {
@@ -41,7 +39,6 @@ function Cart() {
 				<Loading />
 			) : (
 				<>
-					<Navbar />
 					{cart.length > 0 ? (
 						<div className="container">
 							<section className="py-5 bg-light">
@@ -117,7 +114,6 @@ function Cart() {
 							</div>
 						</div>
 					)}
-					<Footer />
 				</>
 			)}
 		</>

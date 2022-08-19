@@ -14,6 +14,7 @@ import './App.css';
 import './css/custom.css';
 import './css/Global-Style.css';
 import 'react-toastify/dist/ReactToastify.css';
+import Chat from './pages/chat/Chat';
 
 function App() {
 	return (
@@ -29,6 +30,8 @@ function App() {
 					<Route path="/register" element={<Register />} />
 				</Routes>
 			</BrowserRouter>
+
+			<Chat />
 
 			{/*  ToastContainer  */}
 			<ToastContainer
