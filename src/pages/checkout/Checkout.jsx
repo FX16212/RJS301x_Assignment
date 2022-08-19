@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import Loading from '../home/components/Loading';
+import { toast } from 'react-toastify';
 import './Checkout.css';
 
 function Checkout() {
@@ -28,7 +29,9 @@ function Checkout() {
 			setLoading(false);
 		}, 1500);
 	}, []);
-	const onSubmit = () => {};
+	const onSubmit = () => {
+		toast.success('Oder Success!');
+	};
 	return (
 		<>
 			{loading ? (

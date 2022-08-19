@@ -11,7 +11,7 @@ function Chat(props) {
 
 	//Get id_user từ redux khi user đã đăng nhập
 	const { id } = useSelector((state) => state.user);
-	const { fullname } = useSelector((state) => state.user.user);
+	const fullname = localStorage.getItem('name_user');
 
 	// Hàm này dùng để mở hộp thoại chat
 	const onChat = () => {
