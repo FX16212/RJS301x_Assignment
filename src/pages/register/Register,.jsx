@@ -64,7 +64,7 @@ function Register() {
 		setTimeout(() => {
 			setLoading(false);
 		}, 1500);
-	}, [success]);
+	}, []);
 
 	if (success) {
 		return <Navigate to={'/login'} />;
